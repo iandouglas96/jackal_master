@@ -1,0 +1,3 @@
+[submodule "ws/src/jackal"]
+	path = ws/src/jackal
+	url = git@github.com:iandouglas96/jackal.git

@@ -1,0 +1,4 @@
+ws/devel/*
+ws/logs/*
+ws/build/*
+ws/.catkin_tools
