@@ -85,20 +85,26 @@ echo $WORKSPACE_DIR
 # E.g.:
 # -v "/opt/sublime_text:/opt/sublime_text" \
 
-nvidia-docker run -it \
+docker run --gpus all \
+  -u 1000 \
+  -it \
+  --workdir /home/dcist \
+  --privileged \
   -e DISPLAY=$DISPLAY \
   -e QT_X11_NO_MITSHM=1 \
   -e XAUTHORITY=$XAUTH \
-  -v "$XAUTH:$XAUTH" \
   -v "/tmp/.X11-unix:/tmp/.X11-unix" \
   -v "/etc/localtime:/etc/localtime:ro" \
   -v "/dev/input:/dev/input" \
-  --privileged \
+  -v "/media/$USER:/media/dcist" \
   --network host \
   -h jackal \
   --add-host jackal:127.0.0.1 \
-  -v "/home/$USER/Docker/jackal/ws:/home/$USER/ws" \
+  -v "/home/$USER/Docker/jackal_master/ws:/home/dcist/jackal_ws" \
+  -v "/home/$USER/Docker/user_ws:/home/dcist/user_ws" \
+  -v "/home/$USER/Docker/data:/home/dcist/data" \
   --rm \
   --security-opt seccomp=unconfined \
+  --group-add=dialout \
   $DOCKER_OPTS \
   $IMG
