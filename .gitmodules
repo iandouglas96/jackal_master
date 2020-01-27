@@ -9,7 +9,7 @@
 	url = https://github.com/iandouglas96/flir_camera_driver.git
 [submodule "ws/src/LeGO-LOAM"]
 	path = ws/src/LeGO-LOAM
-	url = https://github.com/RobustFieldAutonomyLab/LeGO-LOAM.git
+	url = https://github.com/iandouglas96/LeGO-LOAM.git
 [submodule "ws/src/ouster_example"]
 	path = ws/src/ouster_example
 	url = https://github.com/ouster-lidar/ouster_example.git
