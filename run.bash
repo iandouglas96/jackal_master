@@ -95,7 +95,7 @@ docker run --gpus all \
   -e XAUTHORITY=$XAUTH \
   -v "/tmp/.X11-unix:/tmp/.X11-unix" \
   -v "/etc/localtime:/etc/localtime:ro" \
-  -v "/dev/input:/dev/input" \
+  -v "/dev:/dev" \
   -v "/media/$USER:/media/dcist" \
   --network host \
   -h jackal \
