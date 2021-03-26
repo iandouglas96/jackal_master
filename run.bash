@@ -103,6 +103,7 @@ docker run --gpus all \
   -v "/home/$USER/Docker/jackal_master/ws:/home/dcist/jackal_ws" \
   -v "/home/$USER/Docker/user_ws:/home/dcist/user_ws" \
   -v "/home/$USER/Docker/data:/home/dcist/data" \
+  -v "/home/$USER/.ros_docker:/home/dcist/.ros" \
   --rm \
   --security-opt seccomp=unconfined \
   --group-add=dialout \

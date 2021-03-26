@@ -1,4 +1,4 @@
-FROM nvidia/opengl:1.0-glvnd-devel-ubuntu18.04
+FROM nvidia/cudagl:10.2-devel-ubuntu18.04
 
 # Tools I find useful during development
 RUN apt-get update \
@@ -29,7 +29,7 @@ RUN apt-get update \
 # Add a user with the same user_id as the user outside the container
 # Requires a docker build argument `user_id`
 ARG user_id
-env USER ian
+env USER dcist
 RUN useradd -U --uid ${user_id} -ms /bin/bash $USER \
  && echo "$USER:$USER" | chpasswd \
  && adduser $USER sudo \
@@ -40,7 +40,7 @@ USER $USER
 
 # Clone all the gazebo models so that you don't download them every time
 # docker is run
-RUN mkdir -p /home/$USER/.gazebo && hg clone https://bitbucket.org/osrf/gazebo_models /home/$USER/.gazebo/models
+RUN mkdir -p /home/$USER/.gazebo && git clone https://github.com/osrf/gazebo_models /home/$USER/.gazebo/models
 
 RUN export DEBIAN_FRONTEND=noninteractive \
  && sudo apt-get update \
@@ -56,6 +56,7 @@ RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) 
     libgazebo9-dev \
     gazebo9 \
     python-catkin-tools \
+    python-rosdep \
     python-rosinstall \
     ros-melodic-desktop-full \
     ros-melodic-joystick-drivers \
@@ -64,8 +65,9 @@ RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) 
     ros-melodic-spacenav-node \
     ros-melodic-tf2-sensor-msgs \
     ros-melodic-twist-mux \
-    ros-melodic-velodyne-simulator \
- && sudo rosdep init \
+    ros-melodic-velodyne-simulator
+
+RUN sudo rosdep init \
  && sudo apt-get clean
 
 RUN rosdep update
