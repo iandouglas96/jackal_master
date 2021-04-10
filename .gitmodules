@@ -13,3 +13,6 @@
 [submodule "ws/src/ouster_example"]
 	path = ws/src/ouster_example
 	url = https://github.com/ouster-lidar/ouster_example.git
+[submodule "ws/src/vision_opencv"]
+	path = ws/src/vision_opencv
+	url = https://github.com/ros-perception/vision_opencv.git
