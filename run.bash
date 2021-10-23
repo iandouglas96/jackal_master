@@ -100,6 +100,7 @@ docker run --gpus all \
   --network host \
   -h jackal \
   --add-host jackal:127.0.0.1 \
+  --add-host jackal:192.168.8.100 \
   -v "/home/$USER/Docker/jackal_master/ws:/home/dcist/jackal_ws" \
   -v "/home/$USER/Docker/user_ws:/home/dcist/user_ws" \
   -v "/home/$USER/Docker/data:/home/dcist/data" \
