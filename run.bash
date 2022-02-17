@@ -105,6 +105,7 @@ docker run --gpus all \
   -v "/home/$USER/Docker/user_ws:/home/dcist/user_ws" \
   -v "/home/$USER/Docker/data:/home/dcist/data" \
   -v "/home/$USER/.ros_docker:/home/dcist/.ros" \
+  -v "/home/$USER/.bash_history:/home/dcist/.bash_history" \
   --rm \
   --security-opt seccomp=unconfined \
   --group-add=dialout \
