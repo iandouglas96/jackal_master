@@ -101,11 +101,13 @@ docker run --gpus all \
   -h jackal \
   --add-host jackal:127.0.0.1 \
   --add-host jackal:192.168.8.100 \
-  -v "/home/$USER/Docker/jackal_master/ws:/home/dcist/jackal_ws" \
-  -v "/home/$USER/Docker/user_ws:/home/dcist/user_ws" \
+  -v "/home/$USER/Docker/jackal_master2/ws:/home/dcist/jackal_ws" \
+  -v "/home/$USER/Docker/user_ws2:/home/dcist/user_ws" \
   -v "/home/$USER/Docker/data:/home/dcist/data" \
   -v "/home/$USER/.ros_docker:/home/dcist/.ros" \
+  -v "/home/$USER/Docker/jackal_master2/jackal2/tmux.conf:/home/dcist/.tmux.conf" \
   -v "/home/$USER/.bash_history:/home/dcist/.bash_history" \
+  -v "/home/$USER/Docker/jackal_master2/jackal2/bashrc:/home/dcist/.bashrc_host" \
   --rm \
   --security-opt seccomp=unconfined \
   --group-add=dialout \
